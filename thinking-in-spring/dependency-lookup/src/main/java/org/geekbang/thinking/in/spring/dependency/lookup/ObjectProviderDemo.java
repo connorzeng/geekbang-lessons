@@ -60,13 +60,21 @@ public class ObjectProviderDemo { // @Configuration 是非必须注解
     private static void lookupIfAvailable(AnnotationConfigApplicationContext applicationContext) {
         ObjectProvider<User> userObjectProvider = applicationContext.getBeanProvider(User.class);
         User user = userObjectProvider.getIfAvailable(User::createUser);
+        //User user = userObjectProvider.getIfAvailable(()-> User.createUser());
+        userObjectProvider.ifAvailable((t -> System.out.println("ifAvailable:" + t)));
         System.out.println("当前 User 对象：" + user);
     }
 
     @Bean
-    @Primary
+    @Primary//多个类型时,需要这个注解解决  No qualifying bean of type 'java.lang.String'
     public String helloWorld() { // 方法名就是 Bean 名称 = "helloWorld"
         return "Hello,World";
+    }
+
+    @Bean
+    //@Primary
+    public String helloWorld1() { // 方法名就是 Bean 名称 = "helloWorld"
+        return "Hello,World1";
     }
 
     @Bean

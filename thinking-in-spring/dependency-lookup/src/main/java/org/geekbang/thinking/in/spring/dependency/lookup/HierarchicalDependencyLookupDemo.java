@@ -52,6 +52,13 @@ public class HierarchicalDependencyLookupDemo {
         displayContainsBean(beanFactory, "user");
         displayContainsBean(parentBeanFactory, "user");
 
+
+        System.out.println(beanFactory.getBean("user"));
+        System.out.println(beanFactory.getBean("helloWorld"));
+        System.out.println(parentBeanFactory.getBean("user"));
+        //No bean named 'helloWorld' available
+        //System.out.println(parentBeanFactory.getBean("helloWorld"));
+
         // 启动应用上下文
         applicationContext.refresh();
 

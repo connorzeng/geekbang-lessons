@@ -16,14 +16,11 @@
  */
 package org.geekbang.thinking.in.spring.ioc.overview.domain;
 
-import org.geekbang.thinking.in.spring.ioc.overview.enums.City;
 import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.core.io.Resource;
-
+import org.geekbang.thinking.in.spring.ioc.overview.enums.City;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Properties;

@@ -58,6 +58,12 @@ public class AnnotationBeanDefinitionDemo {
         // 按照类型依赖查找
         System.out.println("Config 类型的所有 Beans" + applicationContext.getBeansOfType(Config.class));
         System.out.println("User 类型的所有 Beans" + applicationContext.getBeansOfType(User.class));
+
+        User user1 = (User) applicationContext.getBean("mercyblitz-user");
+        User user2 = (User) applicationContext.getBean("user");
+
+        System.out.println(user1 == user2);
+
         // 显示地关闭 Spring 应用上下文
         applicationContext.close();
     }
